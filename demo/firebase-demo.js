@@ -24,11 +24,11 @@ function initDemo() {
   //
   // Firebase code here
   //
-  messageStore = new Firebase('https://gdg-seattle.firebaseio.com/messages');
-  messageStore.on('child_added', function(snapshot) {
-    var message = snapshot.val();
-    displayMessage(message.name, message.message);
-  });
+  // messageStore = new Firebase('https://gdg-seattle.firebaseio.com/messages');
+  // messageStore.on('child_added', function(snapshot) {
+  //  var message = snapshot.val();
+  //  displayMessage(message.name, message.message);
+  // });
 }
 
 function onChangeNickname() {
@@ -49,10 +49,13 @@ function onSendMessage() {
   //
   // Firebase code here
   //
-  messageStore.push({
-    name: nickName,
-    message: message
-  });
+  // messageStore.push({
+  //   name: nickName,
+  //  message: message
+  // });
+
+  // Local display of message.
+  displayMessage(nickName, message);
 }
 
 function displayMessage(name, message) {
