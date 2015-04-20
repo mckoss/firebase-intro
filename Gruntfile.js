@@ -68,7 +68,7 @@ module.exports = function(grunt) {
       files: [ 'Gruntfile.js',
                'config.js',
                'reveal-config.js',
-               'firebase-intro.js'
+               'firebase-intro.js',
              ]
     },
 
@@ -85,6 +85,7 @@ module.exports = function(grunt) {
       'reveal-js-presentation.zip': [
         'index.html',
         'css/**',
+        'demo/**',
         'js/**',
         'lib/**',
         'images/**',
@@ -94,7 +95,10 @@ module.exports = function(grunt) {
 
     watch: {
       main: {
-        files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
+        files: [ 'Gruntfile.js',
+                 'js/reveal.js',
+                 'demo/firebase-demo.js',
+                 'css/reveal.css' ],
         tasks: 'default'
       },
       theme: {
