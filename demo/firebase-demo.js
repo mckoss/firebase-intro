@@ -21,7 +21,14 @@ function initDemo() {
 
   displayMessage("Mike", "This is a sample (dynamic) message.");
 
+  //
+  // Firebase code here
+  //
   messageStore = new Firebase('https://gdg-seattle.firebaseio.com/messages');
+  messageStore.on('child_added', function(snapshot) {
+    var message = snapshot.val();
+    displayMessage(message.name, message.message);
+  });
 }
 
 function onChangeNickname() {
@@ -34,11 +41,14 @@ function onSendMessage() {
     alert("Missing nickname.");
     return;
   }
+
   var message = messageInput.value;
   messageInput.value = "";
   messageInput.focus();
 
-  displayMessage(nickName, message);
+  //
+  // Firebase code here
+  //
   messageStore.push({
     name: nickName,
     message: message
