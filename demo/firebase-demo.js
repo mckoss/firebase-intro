@@ -7,6 +7,8 @@ var messageInput;
 
 var nickName;
 
+var messageStore;
+
 function initDemo() {
   bindButton('change-nickname', onChangeNickname);
   bindButton('send-message', onSendMessage);
@@ -18,6 +20,8 @@ function initDemo() {
   nicknameInput.focus();
 
   displayMessage("Mike", "This is a sample (dynamic) message.");
+
+  messageStore = new Firebase('https://gdg-seattle.firebaseio.com/messages');
 }
 
 function onChangeNickname() {
@@ -34,7 +38,11 @@ function onSendMessage() {
   messageInput.value = "";
   messageInput.focus();
 
-  console.log("Send message: " + message);
+  displayMessage(nickName, message);
+  messageStore.push({
+    name: nickName,
+    message: message
+  });
 }
 
 function displayMessage(name, message) {
