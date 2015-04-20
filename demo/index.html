@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="/demo/firebase-demo.js"></script>
+    <style>
+      div {
+      margin: 10px;
+      }
+
+      input[type=text] {
+      width: 200px;
+      }
+
+      label {
+      display: inline-block;
+      width: 100px;
+      }
+
+      .name {
+      font-style: italic
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, GDG-Seattle!</h1>
+    <div>
+      <label>Nickname: </label><input id="nickname" type="text">
+      <button id="change-nickname">Change</button>
+    </div>
+    <div>
+      <label>Message: </label><input id="message" type="text">
+      <button id="change-nickname">Send</button>
+    </div>
+    <h2>Message History:</h2>
+
+    <div id="message-history">
+
+      <div class="message">
+        <span class="name">Mike:</span>
+        <span class="message">This is another static message.</span>
+      </div>
+
+      <div class="message">
+        <span class="name">Mike:</span>
+        <span class="message">This is a static message.</span>
+      </div>
+
+    </div>
+  </body>
+</html>
