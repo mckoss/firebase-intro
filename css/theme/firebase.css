@@ -53,8 +53,8 @@
     margin-left: 800px; }
 
 .framework-logo {
-  height: 24% !important;
-  width: 24% !important; }
+  height: 164px !important;
+  width: 164px !important; }
 
 .text-large {
   font-size: 104px !important;
@@ -66,6 +66,9 @@
 
 .text-small {
   font-size: 42px !important; }
+
+.text-very-small {
+  font-size: 24px !important; }
 
 #era {
   padding: 15px;

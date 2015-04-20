@@ -30,3 +30,5 @@ run tests and run a local web server serving the content.
     $ grunt serve
 
 Visit http://localhost:8000
+
+# Customize the slide deck with your own name

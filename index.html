@@ -31,23 +31,9 @@
       }
     </script>
 
-  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-  <script>
-    window.addEventListener('load', installCounter);
-
-    function installCounter() {
-      var devsRef = new Firebase("https://firebase-website.firebaseio.com/stats/signups");
-      var counterSpan = document.getElementById('current-devs');
-      devsRef.on("value", function (snap) {
-        // Use thousand separator in counter.
-        counterSpan.textContent = snap.val().toLocaleString();
-      });
-    }
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script>
     </script>
-
-    <!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -69,7 +55,11 @@
           <img src="images/firebase-logo.png" class="no-style">
           <br> <br>
           <p>
-            <h6>YOUR_NAME / <a href="http://twitter.com/_davideast">@MY_TWITTER</a></h6>
+            <h6><span id="presenter-name">Firebase</span> /
+              <a id="presenter-twitter-url" href="http://twitter.com/firebase">
+                @<span id="presenter-twitter">firebase</span>
+              </a>
+            </h6>
 
           </p>
         </section>
@@ -195,6 +185,7 @@ ref.onAuth(function(authData) {
 
         <section>
           <h3>Bindings</h3>
+          <!-- TODO(koss): Use flexbox to add text titles. -->
           <img src="/images/backbonejs.png" class="framework-logo no-style" />
           <img src="/images/emberjs.png" class="framework-logo no-style" />
           <img src="/images/react.png" class="framework-logo no-style" />
@@ -202,7 +193,8 @@ ref.onAuth(function(authData) {
         </section>
 
         <section>
-          <h1>(Optional) Live Coding</h1>
+          <h1>Let's Build an App!</h1>
+          <h1>(Live Coding)</h1>
         </section>
 
         <section>
@@ -216,13 +208,16 @@ ref.onAuth(function(authData) {
         <section>
           <h4>Firebase meta-data</h4>
           <p class="era-point">
+            Founded in 2011
+          </p>
+          <p class="era-point">
+            1 Million concurrent users
+          </p>
+          <p class="era-point">
             <span id="current-devs">170,000+</span> registered developers
           </p>
           <p class="era-point">
-            1M concurrent users on Firebase sites
-          </p>
-          <p class="era-point">
-            Joined Google October, 2014
+            Google Acquisition in 2014
           </p>
         </section>
 
@@ -253,9 +248,12 @@ ref.onAuth(function(authData) {
           </section>
 
         <section>
-          <h1>ASK ME QUESTIONS</h1>
-          <h5>David East / <a href="http://twitter.com/_davideast">@_davideast</a></h5>
-          <h5>Developer Advocate / <a href="http://twitter.com/firebase">@Firebase</a></h5>
+          <h1>Questions?</h1>
+          <h5><span id="presenter-name">Firebase.com</span> /
+            <a id="presenter-twitter-url" href="http://twitter.com/firebase">
+              @<span id="presenter-twitter">firebase</span>
+            </a>
+          </h5>
         </section>
 
       </div>
@@ -264,56 +262,8 @@ ref.onAuth(function(authData) {
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
-
-    <script>
-
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: false,
-        progress: true,
-        history: true,
-        center: true,
-
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
-
-        // Parallax scrolling
-        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-        // parallaxBackgroundSize: '2100px 900px',
-
-        // Optional libraries used to extend on reveal.js
-        dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-        ]
-      });
-
-    </script>
-
-    <script>
-
-      function signPostEra( event ) {
-        var title = event.currentSlide.attributes.title;
-
-        if(title) {
-          var era = document.getElementById('era');
-          era.innerText = title.value;
-        }
-      }
-
-      Reveal.addEventListener( 'ready', function( event ) {
-        signPostEra( event );
-      });
-
-      Reveal.addEventListener( 'slidechanged', function( event ) {
-        signPostEra( event );
-      });
-
-    </script>
+    <script src="js/reveal-config.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/firebase-intro.js"></script>
   </body>
 </html>
