@@ -32,3 +32,9 @@ run tests and run a local web server serving the content.
 Visit http://localhost:8000
 
 # Customize the slide deck with your own name
+
+Edit the information in:
+
+    /js/config.js
+
+to include your name and twitter handle.
